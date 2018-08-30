@@ -1,0 +1,11 @@
+{
+    "name": "CMS",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Engine\\": "engine",
+            "Engine\\DI\\": "engine/DI"
+
+        }
+    }
+}
