@@ -1,6 +1,10 @@
 {
     "name": "CMS",
-    "require": {},
+    "description" : "Set-up for composer",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*"
+    },
+
     "autoload": {
         "psr-4": {
             "Engine\\": "engine",

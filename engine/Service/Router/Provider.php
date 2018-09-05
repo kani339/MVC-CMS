@@ -25,7 +25,7 @@ class Provider extends AbstractProvider
      */
     public function init()
     {
-        $router = new Router('http://localhost:8080/PHP/My%20Projects/CMS/');
+        $router = new Router('http://localhost:8080/PHP/My%20Projects/cms/');
 
         $this->di->set($this->serviceName, $router);
     }
