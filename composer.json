@@ -8,7 +8,9 @@
     "autoload": {
         "psr-4": {
             "Engine\\": "engine",
+            "Cms\\": "cms",
             "Engine\\DI\\": "engine/DI"
+
 
         }
     }
