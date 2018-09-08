@@ -30,10 +30,7 @@ class Cms
 
         try {
 
-            $this->router->add('home', '/PHP/My%20Projects/CMS/', 'HomeController:index');
-            $this->router->add('news', '/PHP/My%20Projects/CMS/news', 'HomeController:news');
-            $this->router->add('news_single', '/PHP/My%20Projects/CMS/news/(id:int)', 'HomeController:news');
-
+            require_once(__DIR__ .'/../cms/Route.php');
 
             $routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
 

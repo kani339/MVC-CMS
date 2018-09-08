@@ -8,7 +8,9 @@ class HomeController extends CmsController
 
     public function index()
     {
-        echo "Index Page";
+        $data = ['name' => 'Viktor'];
+        $this->view->render('index', $data);
+
     }
 
     public function news($id)
@@ -17,9 +19,5 @@ class HomeController extends CmsController
     }
 
 
-    public function test($id)
-    {
-        echo $id;
-    }
 
 }
