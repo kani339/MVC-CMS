@@ -11,10 +11,15 @@ class HomeController extends CmsController
         echo "Index Page";
     }
 
-    public function news()
+    public function news($id)
     {
-        echo "News Page";
+        echo $id;
     }
 
+
+    public function test($id)
+    {
+        echo $id;
+    }
 
 }

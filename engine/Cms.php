@@ -32,6 +32,7 @@ class Cms
 
             $this->router->add('home', '/PHP/My%20Projects/CMS/', 'HomeController:index');
             $this->router->add('news', '/PHP/My%20Projects/CMS/news', 'HomeController:news');
+            $this->router->add('news_single', '/PHP/My%20Projects/CMS/news/(id:int)', 'HomeController:news');
 
 
             $routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
@@ -46,6 +47,7 @@ class Cms
 
             $controller = '\\Cms\\Controller\\' . $class;
             $parameter = $routerDispatch->getParameters();
+
             call_user_func_array([ new $controller($this->di), $action], $parameter);
 
 
