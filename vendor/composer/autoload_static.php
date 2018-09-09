@@ -16,6 +16,10 @@ class ComposerStaticInitdf4ae68d74381a67d1f6b372c1e96610
         array (
             'Cms\\' => 4,
         ),
+        'A' => 
+        array (
+            'Admin\\' => 6,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -31,6 +35,32 @@ class ComposerStaticInitdf4ae68d74381a67d1f6b372c1e96610
         array (
             0 => __DIR__ . '/../..' . '/cms',
         ),
+        'Admin\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/admin',
+        ),
+    );
+
+    public static $classMap = array (
+        'Admin\\Controller\\AdminController' => __DIR__ . '/../..' . '/admin/Controller/AdminController.php',
+        'Admin\\Controller\\ErrorController' => __DIR__ . '/../..' . '/admin/Controller/ErrorController.php',
+        'Cms\\Controller\\CmsController' => __DIR__ . '/../..' . '/cms/Controller/CmsController.php',
+        'Cms\\Controller\\ErrorController' => __DIR__ . '/../..' . '/cms/Controller/ErrorController.php',
+        'Cms\\Controller\\HomeController' => __DIR__ . '/../..' . '/cms/Controller/HomeController.php',
+        'Engine\\Cms' => __DIR__ . '/../..' . '/engine/Cms.php',
+        'Engine\\Controller' => __DIR__ . '/../..' . '/engine/Controller.php',
+        'Engine\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/engine/Core/Database/Connection.php',
+        'Engine\\Core\\Router\\DispatchedRoute' => __DIR__ . '/../..' . '/engine/Core/Router/DispatchedRoute.php',
+        'Engine\\Core\\Router\\Router' => __DIR__ . '/../..' . '/engine/Core/Router/Router.php',
+        'Engine\\Core\\Router\\UrlDispatcher' => __DIR__ . '/../..' . '/engine/Core/Router/UrlDispatcher.php',
+        'Engine\\Core\\Template\\Theme' => __DIR__ . '/../..' . '/engine/Core/Template/Theme.php',
+        'Engine\\Core\\Template\\View' => __DIR__ . '/../..' . '/engine/Core/Template/View.php',
+        'Engine\\DI\\DI' => __DIR__ . '/../..' . '/engine/DI/DI.php',
+        'Engine\\Helper\\Common' => __DIR__ . '/../..' . '/engine/Helper/Common.php',
+        'Engine\\Service\\AbstractProvider' => __DIR__ . '/../..' . '/engine/Service/AbstractProvider.php',
+        'Engine\\Service\\Database\\Provider' => __DIR__ . '/../..' . '/engine/Service/Database/Provider.php',
+        'Engine\\Service\\Router\\Provider' => __DIR__ . '/../..' . '/engine/Service/Router/Provider.php',
+        'Engine\\Service\\View\\Provider' => __DIR__ . '/../..' . '/engine/Service/View/Provider.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -38,6 +68,7 @@ class ComposerStaticInitdf4ae68d74381a67d1f6b372c1e96610
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitdf4ae68d74381a67d1f6b372c1e96610::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitdf4ae68d74381a67d1f6b372c1e96610::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitdf4ae68d74381a67d1f6b372c1e96610::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -6,4 +6,23 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Admin\\Controller\\AdminController' => $baseDir . '/admin/Controller/AdminController.php',
+    'Admin\\Controller\\ErrorController' => $baseDir . '/admin/Controller/ErrorController.php',
+    'Cms\\Controller\\CmsController' => $baseDir . '/cms/Controller/CmsController.php',
+    'Cms\\Controller\\ErrorController' => $baseDir . '/cms/Controller/ErrorController.php',
+    'Cms\\Controller\\HomeController' => $baseDir . '/cms/Controller/HomeController.php',
+    'Engine\\Cms' => $baseDir . '/engine/Cms.php',
+    'Engine\\Controller' => $baseDir . '/engine/Controller.php',
+    'Engine\\Core\\Database\\Connection' => $baseDir . '/engine/Core/Database/Connection.php',
+    'Engine\\Core\\Router\\DispatchedRoute' => $baseDir . '/engine/Core/Router/DispatchedRoute.php',
+    'Engine\\Core\\Router\\Router' => $baseDir . '/engine/Core/Router/Router.php',
+    'Engine\\Core\\Router\\UrlDispatcher' => $baseDir . '/engine/Core/Router/UrlDispatcher.php',
+    'Engine\\Core\\Template\\Theme' => $baseDir . '/engine/Core/Template/Theme.php',
+    'Engine\\Core\\Template\\View' => $baseDir . '/engine/Core/Template/View.php',
+    'Engine\\DI\\DI' => $baseDir . '/engine/DI/DI.php',
+    'Engine\\Helper\\Common' => $baseDir . '/engine/Helper/Common.php',
+    'Engine\\Service\\AbstractProvider' => $baseDir . '/engine/Service/AbstractProvider.php',
+    'Engine\\Service\\Database\\Provider' => $baseDir . '/engine/Service/Database/Provider.php',
+    'Engine\\Service\\Router\\Provider' => $baseDir . '/engine/Service/Router/Provider.php',
+    'Engine\\Service\\View\\Provider' => $baseDir . '/engine/Service/View/Provider.php',
 );
