@@ -8,7 +8,7 @@ class ErrorController extends AdminController
 
     public function page404()
     {
-        echo "Page Not Found";
+        echo "404 Page Not Found";
     }
 
 }

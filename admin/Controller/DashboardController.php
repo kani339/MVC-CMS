@@ -3,7 +3,12 @@
 namespace Admin\Controller;
 
 
-class DashboardController
+class DashboardController extends AdminController
 {
 
+    public function index()
+    {
+
+        $this->view->render('dashboard');
+    }
 }

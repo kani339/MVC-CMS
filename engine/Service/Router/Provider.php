@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Viktor
- * Date: 8/30/2018
- * Time: 09:47
- */
+
 
 namespace Engine\Service\Router;
 
