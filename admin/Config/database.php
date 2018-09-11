@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'host' => 'localhost',
-    'username' => 'root',
-    'password' => ''
+    'host'      => 'localhost',
+    'db_name'   => 'cms',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8'
 ];
