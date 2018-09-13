@@ -21,7 +21,7 @@ class Config
      */
     public static function file($group)
     {
-        $path = $_SERVER['DOCUMENT_ROOT'] . '/PHP/My Projects/CMS/' . mb_strtolower(ENV) . '/Config/' . $group . '.php';
+        $path = $_SERVER['DOCUMENT_ROOT'] . '/' . mb_strtolower(ENV) . '/Config/' . $group . '.php';
 
         if (file_exists($path))
         {

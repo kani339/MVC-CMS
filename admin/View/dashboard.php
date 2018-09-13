@@ -10,10 +10,10 @@
     <title>Админ-панель</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/PHP/My%20Projects/CMS/admin/Assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admin/Assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/PHP/My%20Projects/CMS/admin/Assets/css/dashboard.css" rel="stylesheet">
+    <link href="/admin/Assets/css/dashboard.css" rel="stylesheet">
 
     <!-- simplelineicons for this template -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="right-toolbar">
-                <a href="#">
+                <a href="/admin/logout/">
                     <i class="icon-logout icons"></i> Logout
                 </a>
             </div>
@@ -75,6 +75,6 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="/PHP/My%20Projects/CMS/admin/Assets/js/bootstrap.min.js"></script>
+<script src="/admin/Assets/js/bootstrap.min.js"></script>
 </body>
 </html>

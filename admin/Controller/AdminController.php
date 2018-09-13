@@ -24,16 +24,32 @@ class AdminController extends Controller
 
         $this->auth = new Auth();
 
-        if (!$this->auth->authorized and $this->request->server['REQUEST_URI'] !== '/PHP/My%20Projects/CMS/admin/login')
-        {
-            // redirect to login
-            header('Location: /PHP/My%20Projects/CMS/admin/login', true, 301);
-            exit;
 
-        }
+       if ($this->auth->hashUser() == null)
+       {
+           header('Location: /admin/login/');
+           exit;
+       }
+
     }
 
- 
+
+    /**
+     *  Check Auth
+     */
+    public function checkAuthorization()
+    {
+
+    }
+
+
+    public function logout()
+    {
+
+        $this->auth->unAuthorize();
+        header('Location: /admin/login/');
+        exit;
+    }
 
 
 }
