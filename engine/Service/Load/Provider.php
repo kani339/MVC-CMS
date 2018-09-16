@@ -4,7 +4,7 @@
 namespace Engine\Service\Load;
 
 use Engine\Service\AbstractProvider;
-use Engine\Load;
+use Engine\load;
 
 class Provider extends AbstractProvider
 {
@@ -18,7 +18,7 @@ class Provider extends AbstractProvider
      */
     function init()
     {
-       $load = new Load();
+       $load = new Load($this->di);
 
        $this->di->set($this->serviceName, $load);
     }

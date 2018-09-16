@@ -41,4 +41,22 @@ class DI
         return isset($this->container[$key]) ? $this->container[$key] : null;
     }
 
+
+    /**
+     * @param $key
+     * @param $value
+     */
+    public function push($key, $element = [])
+    {
+        if ($this->has($key) !== null) {
+            $this->set($key, []);
+        }
+
+        if (!empty($element)) {
+            $this->container[$key][$element['key']] = $element['value'];
+        }
+
+
+    }
+
 }

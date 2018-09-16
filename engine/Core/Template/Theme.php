@@ -17,6 +17,9 @@ class Theme
      */
     public $url = '';
 
+    /***
+     * @var array
+     */
     protected $data = [];
 
 
@@ -99,11 +102,16 @@ class Theme
      */
     private function loadTemplateFile($nameFile, $data = [])
     {
+
         $templateFile = ROOT_DIR . '/content/themes/default/' . $nameFile . '.php';
+        if(ENV == 'Admin') {
+            $templateFile = ROOT_DIR . '/View/' . $nameFile . '.php';
+        }
+
 
         if(is_file($templateFile))
         {
-            extract($data);
+            extract(array_merge($data, $this->data));
             require_once $templateFile;
         }
         else

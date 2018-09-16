@@ -25,14 +25,11 @@ class LoginController extends Controller
 
         $this->auth = new Auth();
 
-        if ($this->auth->hashUser() !== null)
-        {
+        if ($this->auth->hashUser() !== null) {
             // redirect
             header('Location: /admin/');
             exit;
         }
-
-
 
     }
 
@@ -60,8 +57,7 @@ class LoginController extends Controller
         $query = $this->db->query($sql, $queryBuilder->values);
 
 
-        if (!empty($query))
-        {
+        if (!empty($query)) {
             $user = $query[0];
 
             if($user['role'] == 'admin') {

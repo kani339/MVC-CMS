@@ -20,11 +20,11 @@ class UserRepository extends Model
 
     public function test()
     {
-        $user = new User;
-        $user->setEmail('nick@gmail.com');
-        $user->setPassword(md5(rand(1, 10)));
-        $user->setRole('user');
-        $user->setHash('new');
-        $user->save();
+            $user = new User();
+            $user->setEmail('nick@gmail.com');
+            $user->setPassword(md5(rand(1, 10)));
+            $user->setRole('user');
+            $user->setHash('new');
+            //$user->save();
     }
 }

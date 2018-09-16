@@ -109,12 +109,12 @@ class QueryBuilder
         if(!empty($data)) {
             foreach ($data as $key => $value) {
                 $this->sql['set'] .= "{$key} = ?";
-                // if several request vlaues add comma
+                // if several request values add comma
                 if(next($data)) {
                     $this->sql['set'] .= ", ";
                 }
 
-                $this->values[]    = $value;
+                $this->values[] = $value;
             }
         }
 
