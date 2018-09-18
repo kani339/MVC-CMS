@@ -41,6 +41,9 @@ trait ActiveRecord
         return $this->table;
     }
 
+    /**
+     * @return object|null
+     */
     public function findOne()
     {
         $find = $this->db->query(
@@ -80,7 +83,6 @@ trait ActiveRecord
             }
 
             return $this->db->lastInsertId();
-
         } catch (\Exception $e) {
             echo $e->getMessage();
         }

@@ -1,14 +1,12 @@
 <?php
 
-
 namespace Engine\Core\Database;
 
-use PDO;
+use \PDO;
 use Engine\Core\Config\Config;
 
 class Connection
 {
-
     private $link;
 
     /**
@@ -24,15 +22,14 @@ class Connection
      */
     private function connect()
     {
-
-       $config = Config::file('database');
+        $config = Config::file('database');
 
         $dsn = 'mysql:host='.$config['host'].';dbname='.$config['db_name'].';charset='.$config['charset'];
 
         $this->link = new PDO($dsn, $config['username'], $config['password']);
+
         return $this;
     }
-
 
     /**
      * @param $sql
@@ -46,32 +43,29 @@ class Connection
         return $sth->execute($values);
     }
 
-
     /**
      * @param $sql
      * @param array $values
+     * @param int $statement
      * @return array
      */
-    public function query($sql, $values = [])
+    public function query($sql, $values = [], $statement = PDO::FETCH_OBJ)
     {
-        // results that is being returned from execute method
         $sth = $this->link->prepare($sql);
+
         $sth->execute($values);
 
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $result = $sth->fetchAll($statement);
 
-        if($result === false) {
+        if($result === false){
             return [];
         }
 
         return $result;
     }
 
-
     public function lastInsertId()
     {
         return $this->link->lastInsertId();
-        
     }
-
 }

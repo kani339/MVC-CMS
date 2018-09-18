@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Admin\Model\Page;
 
 use Engine\Core\Database\ActiveRecord;
 
 class Page
 {
-
     use ActiveRecord;
 
     protected $table = 'page';
@@ -83,6 +81,4 @@ class Page
     {
         $this->date = $date;
     }
-
-
 }

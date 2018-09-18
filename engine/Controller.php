@@ -1,14 +1,13 @@
 <?php
 
-
 namespace Engine;
 
 use Engine\DI\DI;
 
 abstract class Controller
 {
-    /***
-     * @var \Engine\DI\DI
+    /**
+     * @var DI
      */
     protected $di;
 
@@ -22,24 +21,21 @@ abstract class Controller
 
     protected $load;
 
-
     /**
      * Controller constructor.
      * @param DI $di
      */
     public function __construct(DI $di)
     {
-        $this->di        = $di;
-        $this->db        = $this->di->get('db');
-        $this->view      = $this->di->get('view');
-        $this->config    = $this->di->get('config');
-        $this->request   = $this->di->get('request');
-        $this->load      = $this->di->get('load');
-
+        $this->di      = $di;
+        $this->db      = $this->di->get('db');
+        $this->view    = $this->di->get('view');
+        $this->config  = $this->di->get('config');
+        $this->request = $this->di->get('request');
+        $this->load    = $this->di->get('load');
 
         $this->initVars();
     }
-
 
     /**
      * @param $key
@@ -50,7 +46,6 @@ abstract class Controller
         return $this->di->get($key);
     }
 
-
     /**
      * @return Controller
      */
@@ -58,8 +53,7 @@ abstract class Controller
     {
         $vars = array_keys(get_object_vars($this));
 
-        foreach ($vars as $var)
-        {
+        foreach ($vars as $var) {
             if ($this->di->has($var)) {
                 $this->{$var} = $this->di->get($var);
             }
@@ -67,5 +61,4 @@ abstract class Controller
 
         return $this;
     }
-
 }

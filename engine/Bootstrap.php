@@ -1,27 +1,30 @@
 <?php
 
-require_oncE __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once  __DIR__ . '/Function.php';
 
 use Engine\Cms;
 use Engine\DI\DI;
 
-try {
+try{
     // Dependency injection
     $di = new DI();
 
-    $services = require(__DIR__ . '/Config/Service.php');
+    $services = require __DIR__ . '/Config/Service.php';
 
-    // init service
-    foreach ($services as $service)
+    // Init services
+    foreach($services as $service)
     {
         $provider = new $service($di);
         $provider->init();
     }
 
+    // Init models
+    $di->set('model', []);
+
     $cms = new Cms($di);
     $cms->run();
 
-
-}catch(\ErrorException $e) {
+}catch (\ErrorException $e) {
     echo $e->getMessage();
 }

@@ -2,11 +2,8 @@
 
 namespace Engine\Core\Router;
 
-use http\Url;
-
 class Router
 {
-
     private $routes = [];
     private $dispatcher;
     private $host;
@@ -29,33 +26,32 @@ class Router
     public function add($key, $pattern, $controller, $method = 'GET')
     {
         $this->routes[$key] = [
-            'pattern'     =>    $pattern,
-            'controller'  =>    $controller,
-            'method'      =>    $method
+            'pattern'    => $pattern,
+            'controller' => $controller,
+            'method'     => $method
         ];
     }
 
     /**
      * @param $method
      * @param $uri
-     * @return DispapatchedRoutes
+     * @return DispatchedRoute
      */
     public function dispatch($method, $uri)
     {
         return $this->getDispatcher()->dispatch($method, $uri);
     }
 
-
     /**
      * @return UrlDispatcher
      */
     public function getDispatcher()
     {
-        if ($this->dispatcher == null) {
-
+        if($this->dispatcher == null)
+        {
             $this->dispatcher = new UrlDispatcher();
 
-            foreach ($this->routes as $route)
+            foreach($this->routes as $route)
             {
                 $this->dispatcher->register($route['method'], $route['pattern'], $route['controller']);
             }
@@ -63,5 +59,4 @@ class Router
 
         return $this->dispatcher;
     }
-
 }

@@ -1,4 +1,4 @@
-let page = {
+var page = {
     ajaxMethod: 'POST',
 
     add: function() {
@@ -50,4 +50,3 @@ let page = {
     }
 };
 
-console.log(page);

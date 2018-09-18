@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Viktor
- * Date: 8/30/2018
- * Time: 20:56
- */
 
 namespace Engine\Core\Router;
-
 
 class DispatchedRoute
 {
@@ -15,7 +8,7 @@ class DispatchedRoute
     private $parameters;
 
     /**
-     * DispatchedRouter constructor.
+     * DispatchedRoute constructor.
      * @param $controller
      * @param array $parameters
      */

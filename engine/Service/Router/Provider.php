@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Engine\Service\Router;
-
 
 use Engine\Service\AbstractProvider;
 use Engine\Core\Router\Router;
@@ -10,7 +8,7 @@ use Engine\Core\Router\Router;
 class Provider extends AbstractProvider
 {
 
-    /***
+    /**
      * @var string
      */
     public $serviceName = 'router';
@@ -20,7 +18,7 @@ class Provider extends AbstractProvider
      */
     public function init()
     {
-        $router = new Router('http://localhost:8080/PHP/My%20Projects/cms/');
+        $router = new Router('http://cms.loc/');
 
         $this->di->set($this->serviceName, $router);
     }

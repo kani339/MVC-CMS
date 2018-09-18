@@ -7,7 +7,9 @@ use Engine\Helper\Common;
 
 class Cms
 {
-
+    /**
+     * @var DI
+     */
     private $di;
 
     public $router;
@@ -16,21 +18,20 @@ class Cms
      * cms constructor.
      * @param $di
      */
-    public  function __construct($di)
+    public function __construct($di)
     {
         $this->di = $di;
         $this->router = $this->di->get('router');
     }
 
     /**
-     * Runs entire program
+     * Run cms
      */
     public function run()
     {
-
         try {
 
-            require_once(__DIR__ .'/../' .strtolower(ENV). '/Route.php');
+            require_once __DIR__ . '/../' . mb_strtolower(ENV) . '/Route.php';
 
             $routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
 
@@ -38,20 +39,15 @@ class Cms
                 $routerDispatch = new DispatchedRoute('ErrorController:page404');
             }
 
-            // split $routerDispatch(controller, method) by two vlaues and and them to variables
             list($class, $action) = explode(':', $routerDispatch->getController(), 2);
 
-            $controller = '\\' .ENV. '\\Controller\\' . $class;
-            $parameter = $routerDispatch->getParameters();
+            $controller = '\\' . ENV . '\\Controller\\' . $class;
+            $parameters = $routerDispatch->getParameters();
+            call_user_func_array([new $controller($this->di), $action], $parameters);
+        }catch (\Exception $e){
 
-            call_user_func_array([ new $controller($this->di), $action], $parameter);
-
-
-        } catch(\Exception $e) {
             echo $e->getMessage();
             exit;
         }
-
     }
-
 }

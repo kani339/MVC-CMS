@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Viktor
- * Date: 9/11/2018
- * Time: 20:43
- */
 
 namespace Engine\Service\Request;
 
@@ -13,7 +7,8 @@ use Engine\Core\Request\Request;
 
 class Provider extends AbstractProvider
 {
-    /***
+
+    /**
      * @var string
      */
     public $serviceName = 'request';
@@ -21,11 +16,10 @@ class Provider extends AbstractProvider
     /**
      * @return mixed
      */
-    function init()
+    public function init()
     {
-       $request = new Request();
+        $request = new Request();
 
-       $this->di->set($this->serviceName, $request);
+        $this->di->set($this->serviceName, $request);
     }
-
 }
