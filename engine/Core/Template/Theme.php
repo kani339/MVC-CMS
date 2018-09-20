@@ -2,6 +2,8 @@
 
 namespace Engine\Core\Template;
 
+use Engine\Core\Config\Config;
+
 class Theme
 {
     /**
@@ -12,6 +14,8 @@ class Theme
         'footer'  => 'footer-%s',
         'sidebar' => 'sidebar-%s',
     ];
+
+    const URL_THEME_MASK = '%/content/themes/%s';
 
     /**
      * Url current theme
@@ -24,6 +28,32 @@ class Theme
      */
     protected static $data = [];
 
+    /***
+     * @var Asset
+     */
+    public $asset;
+
+    /***
+     * @var $theme
+     */
+    public $theme;
+
+    public function __construct()
+    {
+
+        $this->asset = new Asset();
+        //current class
+        $this->theme = $this;
+    }
+
+    public static function getUrl()
+    {
+        $currentTheme = Config::item('defaultTheme', 'main');
+        $baseUrl      = Config::item('baseUrl', 'main');
+
+        return sprintf(self::URL_THEME_MASK,  $baseUrl, $currentTheme);
+
+    }
     /**
      * @param null $name
      */
@@ -95,4 +125,14 @@ class Theme
     {
         static::$data = $data;
     }
+
+    /**
+     * @return string
+     */
+    public static function getThemePath()
+    {
+        return ROOT_DIR . '/content/themes/default';
+    }
+
+
 }

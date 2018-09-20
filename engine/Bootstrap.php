@@ -1,7 +1,11 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once  __DIR__ . '/Function.php';
+require_once __DIR__ . '/Function.php';
+
+//Refer to namespace using Asset and Theme
+class_alias('Engine\\Core\\Template\\Asset', 'Asset');
+class_alias('Engine\\Core\\Template\\Theme', 'Theme');
 
 use Engine\Cms;
 use Engine\DI\DI;

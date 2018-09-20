@@ -33,6 +33,12 @@ class View
      */
     public function render($template, $data = [])
     {
+        $functions = Theme::getThemePath() . '/functions.php';
+
+        if(file_exists($functions)) {
+            include_once $functions;
+        }
+
         $templatePath = $this->getTemplatePath($template, ENV);
 
         if (!is_file($templatePath)) {
@@ -74,4 +80,9 @@ class View
 
         return path('view') . '/' . $template . '.php';
     }
+
+
+
+
+
 }

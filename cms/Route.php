@@ -5,5 +5,5 @@
  */
 
 
-$this->router->add('home', '/PHP/My%20Projects/CMS/', 'HomeController:index');
+$this->router->add('home', '/', 'HomeController:index');
 
