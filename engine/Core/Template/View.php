@@ -16,14 +16,27 @@ class View
      */
     protected $theme;
 
+    /***
+     * @var Setting
+     */
+    protected $setting;
+
+    /***
+     * @var Menu
+     */
+    protected $menu;
+
     /**
      * View constructor.
      * @param DI $di
      */
     public function __construct(DI $di)
     {
-        $this->di    = $di;
-        $this->theme = new Theme();
+        $this->di       = $di;
+        $this->theme    = new Theme();
+        $this->setting  = new Setting($di);
+        $this->menu     = new Menu($di);
+
     }
 
     /**

@@ -6,6 +6,9 @@ require_once __DIR__ . '/Function.php';
 //Refer to namespace using Asset and Theme
 class_alias('Engine\\Core\\Template\\Asset', 'Asset');
 class_alias('Engine\\Core\\Template\\Theme', 'Theme');
+class_alias('Engine\\Core\\Template\\Setting', 'Setting');
+class_alias('Engine\\Core\\Template\\Menu', 'Menu');
+
 
 use Engine\Cms;
 use Engine\DI\DI;
